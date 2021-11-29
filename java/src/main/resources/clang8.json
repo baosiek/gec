@@ -1,0 +1,11 @@
+{
+  "DATA_DIR": "/home/baosiek/Development/marian/examples/transformer/data/clang8",
+  "BACK": "false",
+  "C_LANG_8": "clang8_source_target_en.tsv",
+  "C_LANG_8_SRC_TRAIN": "clang8.src.train.txt",
+  "C_LANG_8_TRG_TRAIN": "clang8.trg.train.txt",
+  "C_LANG_8_SRC_VALID": "clang8.src.valid.txt",
+  "C_LANG_8_TRG_VALID": "clang8.trg.valid.txt",
+  "C_LANG_8_SRC_TEST": "clang8.trg.test.txt",
+  "C_LANG_8_TRG_TEST": "clang8.trg.test.txt"
+}

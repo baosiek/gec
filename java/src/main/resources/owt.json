@@ -1,0 +1,10 @@
+{
+  "DOWNLOADED_DIR": "/home/baosiek/Development/marian/examples/transformer/data/openwebtext/downloaded",
+  "DATA_DIR": "/home/baosiek/Development/marian/examples/transformer/data/openwebtext",
+  "OWT_SRC_TRAIN": "owt.src.train.txt",
+  "OWT_TRG_TRAIN": "owt.trg.train.txt",
+  "OWT_SRC_VALID": "owt.src.valid.txt",
+  "OWT_TRG_VALID": "owt.trg.valid.txt",
+  "OWT_SRC_TEST": "owt.src.test.txt",
+  "OWT_TRG_TEST": "owt.trg.test.txt"
+}
