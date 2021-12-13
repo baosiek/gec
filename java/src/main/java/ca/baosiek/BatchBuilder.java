@@ -11,7 +11,6 @@ import java.util.stream.IntStream;
 public class BatchBuilder {
 
     private final String HOME_DIR;
-    private final String RAW = "raw";
 
     public BatchBuilder(String dir){
         this.HOME_DIR = dir;
@@ -24,10 +23,10 @@ public class BatchBuilder {
     public List<Integer> generateRandomNumbers(int quantity, int upperLimit) {
 
         if (quantity > upperLimit){
-            System.err.println(String.format("Quantity %d is greater than upperLimit %d", quantity, upperLimit));
+            System.err.println(String.format("Quantity %,d is greater than upperLimit %d", quantity, upperLimit));
         }
 
-//      Generating 'quantity' random numbers in the range from 1 to upperLimit included
+      // Generating 'quantity' random numbers in the range from 1 to upperLimit included
         List<Integer> range = IntStream.range(1, upperLimit + 1).boxed()
                 .collect(Collectors.toCollection(ArrayList::new));
         Collections.shuffle(range);
@@ -81,7 +80,7 @@ public class BatchBuilder {
                 targetTempWriter.write(refLine);
                 targetTempWriter.newLine();
             }
-            System.out.printf("\tNumber of lines processed: %d\r", pointer + 1);
+            System.out.printf("\tNumber of lines processed: %,d\r", pointer + 1);
         }
         System.out.println();
 
@@ -105,14 +104,14 @@ public class BatchBuilder {
             System.exit(1);
         }
 
-        System.out.printf("\tQuantity: %d, Upper Limit: %d\n", quantity, upperLimit);
+        System.out.printf("\tQuantity: %d, Upper Limit: %,d\n", quantity, upperLimit);
         if (quantity > upperLimit){
             quantity = upperLimit;
-            System.out.printf("\tQuantity set to : %d\n", quantity);
+            System.out.printf("\tQuantity set to : %,d\n", quantity);
         }
 
         List<Integer> randNumbers = this.generateRandomNumbers(quantity, upperLimit);
-        System.out.printf("\tBatch will contain: %d lines\n", randNumbers.size());
+        System.out.printf("\tBatch will contain: %,d lines\n", randNumbers.size());
 
         try {
             this.buildBatches(randNumbers);

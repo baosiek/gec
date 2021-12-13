@@ -2,6 +2,9 @@ package ca.baosiek.utils;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class UnicodePunctuationNormalizer {
 
     private final String[] findString = {"，", "。", "、", "’", "”", "“", "∶", "：", "？",
@@ -27,7 +30,10 @@ public class UnicodePunctuationNormalizer {
         // Converts non mapped ascii characters to space
         newText = nonAsciiCharToSpace(newText);
 
-        // erases all the ASCII control characters
+        // Replaces 2 or more consecutive white spaces with one
+        newText = newText.replaceAll(" {2,}", " ");
+
+        // erases all the ASCII control characters, except \t.
         newText = newText.replaceAll("[\\p{Cntrl}]&&[^\t]", "");
 
         return newText;

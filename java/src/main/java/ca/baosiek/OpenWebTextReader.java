@@ -88,7 +88,7 @@ public class OpenWebTextReader {
 
             List<String> files = shuffleList(Arrays.asList(Objects.requireNonNull(downLoadedDir.list())));
             files.parallelStream().map(f -> getContent(f, files.size(), fileCounter.addAndGet(1), subLevel))
-                    .filter(Optional::isPresent) // if getContent throws an exception content can be null
+                    .filter(Optional::isPresent) // if getContent throws an exception, content can be null
                     .flatMap(content -> shuffleList(content.get()).stream().limit(880))
                     .map(normalizer::normalize)
                     .forEach(line -> {

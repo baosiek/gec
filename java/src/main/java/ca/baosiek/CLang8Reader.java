@@ -120,8 +120,8 @@ public class CLang8Reader {
                     break;
                 case "test":
                     if (!back){
-                        srcTestWriter.append(lineParts[0].trim()).append("\n");
-                        trgTestWriter.append(lineParts[1].trim()).append("\n");
+                        srcTestWriter.append(lineParts[0].trim()).append("\n").flush();
+                        trgTestWriter.append(lineParts[1].trim()).append("\n").flush();
                     } else {
                         srcTestWriter.append(lineParts[1].trim()).append("\n");
                         trgTestWriter.append(lineParts[0].trim()).append("\n");
