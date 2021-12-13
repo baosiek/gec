@@ -17,6 +17,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
+/**
+ * TODO: Change enumeration to Interface
+ */
+
 public class OpenWebTextReader {
 
     private final JSONObject owtConfig;

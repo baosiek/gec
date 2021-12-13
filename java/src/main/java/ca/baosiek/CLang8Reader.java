@@ -23,6 +23,10 @@ import java.util.stream.IntStream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * TODO: Change enumeration to Interface
+ */
+
 public class CLang8Reader {
 
     private final String homeDir;
