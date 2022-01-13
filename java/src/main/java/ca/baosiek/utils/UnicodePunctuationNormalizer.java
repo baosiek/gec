@@ -2,9 +2,6 @@ package ca.baosiek.utils;
 
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 public class UnicodePunctuationNormalizer {
 
     private final String[] findString = {"，", "。", "、", "’", "”", "“", "∶", "：", "？",
@@ -27,7 +24,7 @@ public class UnicodePunctuationNormalizer {
         // Converts mapped non ascii characters to ascii
         String newText = StringUtils.replaceEach(text, findString, replaceString);
 
-        // Converts non mapped ascii characters to space
+        // Converts non mapped non ascii characters to space
         newText = nonAsciiCharToSpace(newText);
 
         // Replaces 2 or more consecutive white spaces with one
@@ -39,7 +36,7 @@ public class UnicodePunctuationNormalizer {
         return newText;
     }
 
-    public static String nonAsciiCharToSpace(String str) {
+    private String nonAsciiCharToSpace(String str) {
         StringBuilder sb = new StringBuilder();
         if (str != null && !str.isEmpty()) {
             for(char c : str.toCharArray()) {
