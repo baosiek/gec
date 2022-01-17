@@ -94,7 +94,7 @@ public class OpenWebTextReader {
             files.parallelStream().map(f -> getContent(f, files.size(), fileCounter.addAndGet(1), subLevel))
                     .filter(Optional::isPresent) // if getContent throws an exception, content can be null
                     .flatMap(content -> shuffleList(content.get()).stream().limit(880))
-                    .map(normalizer::normalize)
+                    .map(UnicodePunctuationNormalizer::normalize)
                     .forEach(line -> {
                         try {
                             /*

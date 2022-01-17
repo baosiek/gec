@@ -4,14 +4,14 @@ import org.apache.commons.lang3.StringUtils;
 
 public class UnicodePunctuationNormalizer {
 
-    private final String[] findString = {"，", "。", "、", "’", "”", "“", "∶", "：", "？",
+    private static final String[] findString = {"，", "。", "、", "’", "”", "“", "∶", "：", "？",
             "《", "》", "）", "！", "（", "s；", "１", "」", "「", "０", "３", "２", "５", "６", "９",
             "７", "８", "４", "～", "…", "━", "〈", "〉", "【", "】", "％", "！","＂", "＃", "＄", "＆", "＊", "＋",
             "＠", "Ａ", "Ｂ", "Ｃ", "Ｄ", "Ｅ", "Ｆ", "Ｇ", "Ｈ", "Ｉ", "Ｊ", "Ｋ", "Ｌ", "Ｍ", "Ｎ", "Ｏ",
             "Ｐ", "Ｑ", "Ｒ", "Ｓ", "Ｔ", "Ｕ", "Ｖ", "Ｗ", "Ｘ", "Ｙ", "Ｚ",
             "ａ", "ｂ", "ｃ", "ｄ", "ｅ", "ｆ", "ｇ", "ｈ", "ｉ", "ｊ", "ｋ", "ｌ", "ｍ", "ｎ", "ｏ", "ｐ",
             "ｑ", "ｒ", "ｓ", "ｔ", "ｕ", "ｖ", "ｗ", "ｘ", "ｙ", "ｚ"};
-    private final String[] replaceString = {",", ".", ",", "'", "\"", "\"", ":", ":", "?",
+    private static final String[] replaceString = {",", ".", ",", "'", "\"", "\"", ":", ":", "?",
             "\"", "\"", ")", "!", "(", ";", "\"", "\"", "\"", "0", "3", "2", "5", "6", "9",
             "7", "8", "4", "~", "...", "-", "<", ">", "[", "]", "%", "!", "\"", "#", "$", "&", "*", "+",
             "@", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O",
@@ -19,7 +19,7 @@ public class UnicodePunctuationNormalizer {
             "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p",
             "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"};
 
-    public String normalize(String text){
+    public static String normalize(String text){
 
         // Converts mapped non ascii characters to ascii
         String newText = StringUtils.replaceEach(text, findString, replaceString);
@@ -36,7 +36,7 @@ public class UnicodePunctuationNormalizer {
         return newText;
     }
 
-    private String nonAsciiCharToSpace(String str) {
+    private static String nonAsciiCharToSpace(String str) {
         StringBuilder sb = new StringBuilder();
         if (str != null && !str.isEmpty()) {
             for(char c : str.toCharArray()) {

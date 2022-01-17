@@ -152,8 +152,6 @@ public class CLang8Reader {
         try {
             // Reader for cLangFile
             BufferedReader reader = Files.newBufferedReader(Paths.get(dataDir.concat("/downloaded"), (String) clang8Config.get(CLang8Enum.C_LANG_8.name())));
-
-            final UnicodePunctuationNormalizer normalizer = new UnicodePunctuationNormalizer();
             //Writers for each one of the six resulting files
             srcTrainWriter = Files.newBufferedWriter(Paths.get(dataDir, (String) clang8Config.get(CLang8Enum.C_LANG_8_SRC_TRAIN.name())));
             trgTrainWriter = Files.newBufferedWriter(Paths.get(dataDir, (String) clang8Config.get(CLang8Enum.C_LANG_8_TRG_TRAIN.name())));
@@ -166,7 +164,7 @@ public class CLang8Reader {
             AtomicInteger counter = new AtomicInteger(0);
             reader.lines().forEach(line -> {
                 ToConsole.print(String.format("Number of lines processed this far: [%,d]", counter.addAndGet(1)), subLevel);
-                sinkLine(normalizer.normalize(line));
+                sinkLine(UnicodePunctuationNormalizer.normalize(line));
             });
             ToConsole.printLine("", 0);
 
